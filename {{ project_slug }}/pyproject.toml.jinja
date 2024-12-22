@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "{{ project_name }}"
+version = "{{ first_version }}"
+description = "{{ project_description}}"
+authors = ["{{ author_name }} {{ author_email }}"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/{{ github_user }}/{{ project_slug }}"
+documentation = "https://{{ project_slug }}.readthedocs.io/en/latest/"
+keywords = ["{{ python_package }}"]
+
+[project]
+name = "{{ project_name }}"
+version = "{{ first_version }}"
+description = "{{ project_description }}"
+readme = "README.md"
+license = "MIT"
+keywords = ["{{ python_package }}"]
+authors = ["{{ author_name }} {{ author_email }}"]
+maintainers = ["{{ author_name }} {{ author_email }}"]
+dynamic = ["version"]
+requires-python = ">={{ python_version }}"
+
+[tool.creosote]
+venvs = [".venv"]
+paths = ["src", "tests", "utils"]
+deps-file = "pyproject.toml"
+sections = ["tool.poetry.dependencies"]
+
+[tool.codespell]
+ignore-words-list = "{{ project_name }}"
+uri-ignore-words-list = "Classess"
+skip = "pyproject.toml,build,dist,.venv,.git,*.png,*.jpg,*.jpeg,*.gif,*.bmp,*.ico,*.svg,*.pyc,*.pyo,*.pyd,*.so,*.dll,*.dylib,*.exe,*.bin,*.hex,*.obj,*.o,*.a,*.lib,*.dll.a,*.db,*.sqlite,*.sqlite3"
+
+[tool.isort]
+profile = "black"
+
+[tool.pyright]
+venv = ".venv"
+venvPath = "."
+pythonVersion = "{{ python_version }}"
+# TODO: fix for earlier Python versions
+# Include this if you're feeling you have too much time on your hands
+# typeCheckingMode = "strict"
+
+[tool.poetry.dependencies]
+python = ">={{ python_version }}"
+
+[tool.poetry.group.dev.dependencies]
+poetry = "^1.7.1"
+pytest = ">=7.4.3,<9.0.0"
+pre-commit = "^4.0.1"
+ruff = "^0.8.0"
+black = "^24.10.0"
+make = "^0.1.6.post2"
+codespell = "^2.2.6"
+sphinx = ">=7.2.6,<9.0.0"
+sphinx-rtd-theme = "^3.0.2"
+pyright = "^1.1.390"
+pytest-cov = "^6.0.0"
+bump-my-version = "^0.28.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,65 @@
+# copier.yml
+
+# Specify the minimum version of Copier you expect to use
+_min_copier_version: "6.0.0"
+
+# Where Copier will look for your actual template files
+# By default it looks in the root directory, so you can omit if your template is the entire repo
+_templates_dir: "."
+
+_skip_if_exists:
+  - CHANGELOG.md
+  - CREDITS.md
+
+# My unprompted variables:
+# A list of variables that will be used in the template, but won't be prompted to the user
+first_version: "0.0.1-dev0"
+read_the_docs_os_target: "ubuntu-22.04"
+docker_base_build_image: "python:{{ python_version }}-buster"
+docker_base_run_image: "python:{{ python_version }}-buster-slim"
+additional_runtime_packages: ""
+current_year: "{{ now().year }}"
+github_user: "UpDryTwist"
+
+# A list of questions (prompts) you want to ask the user when generating a new project
+_questions:
+  project_name:
+    type: str
+    default: "My Awesome Project"
+    help: "What is the project's human-friendly name?"
+  project_description:
+    type: str
+    default: "A short description of the project"
+    help: "A short description of the project"
+  project_slug:
+    type: str
+    default: "my_awesome_project"
+    help: "Project name; lowercase, no spaces; underscores"
+  python_package:
+    type: str
+    default: "my_awesome_project"
+    help: "Python package name; lowercase, no spaces; underscores"
+  docker_project:
+    type: str
+    default: "{{ python_package }}"
+    help: "Docker project name; lowercase, no spaces; hyphens"
+  repository_name:
+    type: str
+    help: Your repository name
+    default: "{{ project_slug|lower|replace('_', '-')|replace(' ', '-') }}"
+  python_package_command_line_name:
+    type: str
+    help: Your CLI name if any (for use in the shell)
+    default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
+  author_name:
+    type: str
+    default: "UpDryTwist"
+    help: "Author name to put in pyproject.toml"
+  author_email:
+    type: str
+    default: "tathamg@gmail.com"
+    help: "Email for the author"
+  python_version:
+    type: str
+    default: "3.11"
+    help: "Python version to use in the project"
