@@ -3,7 +3,7 @@
 
 TEST_DIR = tests
 DOCKER_REPO = registry.supercroy.com/updrytwist
-DOCKER_PROJ = {{ docker_proj }}
+DOCKER_PROJ = {{ docker_project }}
 VERSION = $(shell poetry version | cut -d' ' -f2)
 
 # Before working on something, run make bump-version-<major|minor|patch>
@@ -11,15 +11,15 @@ VERSION = $(shell poetry version | cut -d' ' -f2)
 # To run a full build, run make full-build or fast-build for a faster build
 
 help:
-	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  setup             to setup project"
-	@echo "  install           to install dependencies"
+    @echo "Please use \`make <target>' where <target> is one of"
+    @echo "  setup             to setup project"
+    @echo "  install           to install dependencies"
     @echo "  add-to-git        to add project to git"
-	@echo "  unit              to run unit tests"
-	@echo "  check             to run pre-commit checks"
-	@echo "  commit-ready      to run pre-commit checks and unit tests"
-	@echo "  full-commit-ready to run pre-commit checks, unit tests, and bump version"
-	@echo "  max-build         to run a complete dependencies refresh, full build, and docker build/publish"
+    @echo "  unit              to run unit tests"
+    @echo "  check             to run pre-commit checks"
+    @echo "  commit-ready      to run pre-commit checks and unit tests"
+    @echo "  full-commit-ready to run pre-commit checks, unit tests, and bump version"
+    @echo "  max-build         to run a complete dependencies refresh, full build, and docker build/publish"
     @echo "  template-update   to run the copier update"
 
 setup:
