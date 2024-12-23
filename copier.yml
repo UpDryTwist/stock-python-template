@@ -1,7 +1,7 @@
 # copier.yml
 
 # Specify the minimum version of Copier you expect to use
-_min_copier_version: "6.0.0"
+_min_copier_version: "9.4.1"
 _subdirectory: project
 _templates_suffix: .jinja
 # Where Copier will look for your actual template files
