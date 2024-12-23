@@ -14,11 +14,13 @@ help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  setup             to setup project"
 	@echo "  install           to install dependencies"
+    @echo "  add-to-git        to add project to git"
 	@echo "  unit              to run unit tests"
 	@echo "  check             to run pre-commit checks"
 	@echo "  commit-ready      to run pre-commit checks and unit tests"
 	@echo "  full-commit-ready to run pre-commit checks, unit tests, and bump version"
 	@echo "  max-build         to run a complete dependencies refresh, full build, and docker build/publish"
+    @echo "  template-update   to run the copier update"
 
 setup:
 	@poetry init
@@ -36,6 +38,13 @@ autoupdate:
 forced-update:
 	@poetry cache clear pypi --all
 	@poetry update
+
+add-to-git:
+	@git init
+	@git add .
+	@git commit -m "Initial commit from Copier template"
+	@git remote add origin https://github.com/{{ github_user }}/{{ project_slug }}.git
+	@git push -u origin main
 
 pre-commit-autoupdate:
 	@poetry run pre-commit autoupdate
@@ -111,3 +120,6 @@ fast-build: just-unit version-build
 full-build: full-commit-ready version-build
 
 max-build: autoupdate full-build docker-build
+
+template-update:
+    @copier update
