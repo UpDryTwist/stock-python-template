@@ -6,7 +6,7 @@ _subdirectory: project
 _templates_suffix: .jinja
 # Where Copier will look for your actual template files
 # By default it looks in the root directory, so you can omit if your template is the entire repo
-_templates_dir: "."
+# _templates_dir: "."
 
 _skip_if_exists:
   - CHANGELOG.md
@@ -19,7 +19,7 @@ read_the_docs_os_target: "ubuntu-22.04"
 docker_base_build_image: "python:{{ python_version }}-buster"
 docker_base_run_image: "python:{{ python_version }}-buster-slim"
 additional_runtime_packages: ""
-current_year: "{{ now().year }}"
+current_year: "{{ '%Y' | strftime }}"
 github_user: "UpDryTwist"
 
 # A list of questions (prompts) you want to ask the user when generating a new project
