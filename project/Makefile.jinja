@@ -17,6 +17,7 @@ help:
 	@echo "  system-requirements-install    to install system requirements (only needed once per system)"
 	@echo "  install           to install dependencies"
 	@echo "  add-to-git        to add project to git"
+	@echo "  first-make        to run install, add-to-git, full-commit-ready"
 	@echo "  add-to-github     to add the project to github"
 	@echo "  unit              to run unit tests"
 	@echo "  check             to run pre-commit checks"
@@ -37,9 +38,7 @@ poetry-config:
 	@poetry config virtualenvs.path .venv
 
 system-requirements-install:
-	@winget install --id rhysd.actionlint
-	@winget install --id koalaman.shellcheck
-	@winget install --id mvdan.shfmt
+	@winget install rhysd.actionlint koalaman.shellcheck mvdan.shfmt Gitleaks.Gitleaks
 
 install:
 	@poetry install
@@ -63,6 +62,8 @@ add-to-git:
 add-to-github:
 	@git remote add origin https://github.com/{{ github_user }}/{{ project_slug }}.git
 	@git push -u origin main
+
+first-make: install add-to-git autoupdate full-commit-ready
 
 just-unit:
 	@poetry run pytest -s -v $(TEST_DIR)
