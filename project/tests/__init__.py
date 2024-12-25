@@ -1,3 +1,1 @@
-"""
-Tests for the project.
-"""
+"""Tests for the project."""

@@ -4,8 +4,9 @@ ignore = [
     "E501", # Line too long
     "D203", # 1 blank line required before class docstring
     "D212", # Multi-line docstring should start on 1st line
+    "D413", # Missing blank line after last section (in multi-line docstrings)
     "ISC001",  # Concatentate strings on same line
-]d
+]
 
 select = [
     # pycodestyle

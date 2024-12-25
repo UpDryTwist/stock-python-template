@@ -14,6 +14,7 @@ help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  setup             to setup project (not needed - template does this)"
 	@echo "  poetry-config     to configure Poetry (only needed once per system)"
+	@echo "  system-requirements-install    to install system requirements (only needed once per system)"
 	@echo "  install           to install dependencies"
 	@echo "  add-to-git        to add project to git"
 	@echo "  add-to-github     to add the project to github"
@@ -22,6 +23,8 @@ help:
 	@echo "  commit-ready      to run pre-commit checks and unit tests"
 	@echo "  full-commit-ready to run pre-commit checks, unit tests, and bump version"
 	@echo "  max-build         to run a complete dependencies refresh, full build, and docker build/publish"
+	@echo "  autoupdate        to update dependencies"
+	@echo "  forced-update     to force update dependencies (clear Poetry cache)"
 	@echo "  template-update   to run the copier update"
 
 setup:
@@ -34,30 +37,32 @@ poetry-config:
 	@poetry config virtualenvs.path .venv
 
 system-requirements-install:
-	@installer-install rhysd/actionlint
+	@winget install --id rhysd.actionlint
+	@winget install --id koalaman.shellcheck
+	@winget install --id mvdan.shfmt
 
 install:
 	@poetry install
 	@poetry update
 
 autoupdate:
+	@poetry run pre-commit autoupdate
 	@poetry update
 
 forced-update:
 	@poetry cache clear pypi --all
+	@poetry run pre-commit autoupdate
 	@poetry update
 
 add-to-git:
 	@git init
 	@git add .
 	@git commit -m "Initial commit from Copier template"
+	@poetry run pre-commit install
 
 add-to-github:
 	@git remote add origin https://github.com/{{ github_user }}/{{ project_slug }}.git
 	@git push -u origin main
-
-pre-commit-autoupdate:
-	@poetry run pre-commit autoupdate
 
 just-unit:
 	@poetry run pytest -s -v $(TEST_DIR)
@@ -78,7 +83,7 @@ check-github-actions:
 
 commit-ready: check unit
 
-full-commit-ready: pre-commit-autoupdate commit-ready check-manual
+full-commit-ready: autoupdate commit-ready check-manual
 
 sphinx-start:
 	@poetry run sphinx-quickstart docs
@@ -132,4 +137,4 @@ full-build: full-commit-ready version-build
 max-build: autoupdate full-build docker-build
 
 template-update:
-	@copier update
+	@copier update --defaults --conflict inline

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2024. All rights reserved.
+# Copyright (c) {{ current_year }}. All rights reserved.
 #
 
 set -e
@@ -25,7 +25,7 @@ source /app/.venv/bin/activate
 cd /app
 
 if [[ $# -eq 0 ]]; then
-  set -- "python" "-m" "{{ project_package }}"
+	set -- "python" "-m" ""
 fi
 
 if [ "${user}" = '0' ]; then

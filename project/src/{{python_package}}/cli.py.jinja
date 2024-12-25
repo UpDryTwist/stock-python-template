@@ -8,8 +8,9 @@
 #   `{{ python_package}}.__main__` in `sys.modules`.
 # - When you import `__main__` it will get executed again (as a module) because
 #   there's no `{{ python_package }}.__main__` in `sys.modules`.
-
 """Module that contains the command line application."""
+
+from __future__ import annotations
 
 import argparse
 
@@ -38,5 +39,5 @@ def main(args: list[str]|None = None) -> int:
     """
     parser = get_parser()
     opts = parser.parse_args(args=args)
-    print(opts)  # noqa: T201 WPS421 (side-effect in main is fine)
+    print(opts)  # noqa: T201
     return 0
