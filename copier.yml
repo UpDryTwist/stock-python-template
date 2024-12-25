@@ -12,6 +12,10 @@ _skip_if_exists:
   - CHANGELOG.md
   - CREDITS.md
 
+_tasks:
+  - "chmod +x run_scripts/*.sh"
+#  - "chmod +x utils/*.sh"
+
 # My unprompted variables:
 # A list of variables that will be used in the template, but won't be prompted to the user
 first_version:
