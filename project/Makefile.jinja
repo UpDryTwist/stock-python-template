@@ -12,9 +12,11 @@ VERSION = $(shell poetry version | cut -d' ' -f2)
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  setup             to setup project"
+	@echo "  setup             to setup project (not needed - template does this)"
+	@echo "  poetry-config     to configure Poetry (only needed once per system)"
 	@echo "  install           to install dependencies"
 	@echo "  add-to-git        to add project to git"
+	@echo "  add-to-github     to add the project to github"
 	@echo "  unit              to run unit tests"
 	@echo "  check             to run pre-commit checks"
 	@echo "  commit-ready      to run pre-commit checks and unit tests"
@@ -26,11 +28,17 @@ setup:
 	@poetry init
 	@pre-commit install
 
+poetry-config:
+	@poetry config virtualenvs.in-project true
+	@poetry config virtualenvs.create true
+	@poetry config virtualenvs.path .venv
+
 system-requirements-install:
 	@installer-install rhysd/actionlint
 
 install:
 	@poetry install
+	@poetry update
 
 autoupdate:
 	@poetry update
@@ -43,6 +51,8 @@ add-to-git:
 	@git init
 	@git add .
 	@git commit -m "Initial commit from Copier template"
+
+add-to-github:
 	@git remote add origin https://github.com/{{ github_user }}/{{ project_slug }}.git
 	@git push -u origin main
 

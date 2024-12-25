@@ -1,10 +1,12 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
+Configuration file for the Sphinx documentation builder.
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+ For the full list of built-in configuration values, see the documentation:
+ https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+ -- Project information -----------------------------------------------------
+ https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+"""
 import os
 import sys
 
@@ -14,7 +16,7 @@ sys.path.append(os.path.abspath("."))
 sys.path.append(os.path.abspath(".."))
 
 project = "{{ python_package }}"
-copyright = "{{ copyright_year }}, {{ author_name}}"
+copyright = "{{ copyright_year }}, {{ author_name}}" # noqa: A001
 author = "{{ author_name }}"
 
 # -- General configuration ---------------------------------------------------

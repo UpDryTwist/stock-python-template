@@ -2,24 +2,15 @@
 name = "{{ project_name }}"
 version = "{{ first_version }}"
 description = "{{ project_description}}"
-authors = ["{{ author_name }} {{ author_email }}"]
+authors = ["{{ author_name }} <{{ author_email }}>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/{{ github_user }}/{{ project_slug }}"
 documentation = "https://{{ project_slug }}.readthedocs.io/en/latest/"
 keywords = ["{{ python_package }}"]
+homepage = "https://github.com/{{ github_user }}/{{ project_slug }}"
+packages = [ { include = "{{ python_package }}", from = "src" } ]
 
-[project]
-name = "{{ project_name }}"
-version = "{{ first_version }}"
-description = "{{ project_description }}"
-readme = "README.md"
-license = "MIT"
-keywords = ["{{ python_package }}"]
-authors = ["{{ author_name }} {{ author_email }}"]
-maintainers = ["{{ author_name }} {{ author_email }}"]
-dynamic = ["version"]
-requires-python = ">={{ python_version }}"
 
 [tool.creosote]
 venvs = [".venv"]
@@ -44,7 +35,7 @@ pythonVersion = "{{ python_version }}"
 # typeCheckingMode = "strict"
 
 [tool.poetry.dependencies]
-python = ">={{ python_version }}"
+python = ">={{ python_version }},<4.0"
 
 [tool.poetry.group.dev.dependencies]
 poetry = "^1.7.1"
