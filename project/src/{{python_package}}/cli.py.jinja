@@ -5,9 +5,9 @@
 #
 # - When you run `python -m my_awesome_project` python will execute
 #   `__main__.py` as a script. That means there won't be any
-#   `my_awesome_project.__main__` in `sys.modules`.
+#   `{{ python_package }}.__main__` in `sys.modules`.
 # - When you import `__main__` it will get executed again (as a module) because
-#   there's no `my_awesome_project.__main__` in `sys.modules`.
+#   there's no `{{ python_package }}.__main__` in `sys.modules`.
 """Module that contains the command line application."""
 
 from __future__ import annotations
@@ -22,14 +22,14 @@ def get_parser() -> argparse.ArgumentParser:
     Returns:
         An argparse parser.
     """
-    return argparse.ArgumentParser(prog="my-awesome-project")
+    return argparse.ArgumentParser(prog="{{ python_package|replace('_', '-') }}")
 
 
 def main(args: list[str] | None = None) -> int:
     """
     Run the main program.
 
-    This function is executed when you type `my-awesome-project` or `python -m my_awesome_project`.
+    This function is executed when you type `{{ python_package }}` or `python -m {{ python_package }}`.
 
     Arguments:
         args: Arguments passed from the command line.
