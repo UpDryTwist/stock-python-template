@@ -3,7 +3,7 @@
 # You might be tempted to import things from `__main__` later,
 # but that will cause problems: the code will get executed twice:
 #
-# - When you run `python -m my_awesome_project` python will execute
+# - When you run `python -m {{ python_package }}` python will execute
 #   `__main__.py` as a script. That means there won't be any
 #   `{{ python_package }}.__main__` in `sys.modules`.
 # - When you import `__main__` it will get executed again (as a module) because
