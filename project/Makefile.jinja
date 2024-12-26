@@ -63,7 +63,7 @@ add-to-git:
 	@git add .
 	@git add --chmod=+x run_scripts/*.sh
 	@git commit -m "Initial commit from Copier template"
-	@git config --global --add safe.directory .
+	@git config --global --add safe.directory $(CURDIR)
 	@poetry run pre-commit install
 
 add-to-github:
