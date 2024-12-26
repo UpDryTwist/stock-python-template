@@ -68,9 +68,10 @@ add-to-git:
 	@poetry run pre-commit install
 
 add-to-github:
-	@gh repo create {{ repository_name }} --public --source=. --remote origin --push
-#	@git remote add origin https://github.com/{{ github_user }}/{{ repository_name }}.git
-#	@git push -u origin main
+	@gh repo create {{ repository_name }} --public --source=.
+    @git branch -M main
+	@git remote add origin https://github.com/{{ github_user }}/{{ repository_name }}.git
+	@git push -u origin main
 
 first-make: install add-to-git autoupdate full-commit-ready
 
