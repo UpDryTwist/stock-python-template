@@ -24,14 +24,11 @@ first_version:
 read_the_docs_os_target:
   default: "ubuntu-22.04"
   when: false
-docker_base_build_image:
-  default: "python:{{ python_version }}-buster"
-  when: false
-docker_base_run_image:
-  default: "python:{{ python_version }}-buster-slim"
-  when: false
 additional_runtime_packages:
   default: ""
+  when: false
+ubuntu_version_name:
+  default: "buster"
   when: false
 current_year:
   default: "{{ '%Y' | strftime }}"
@@ -82,3 +79,10 @@ python_version:
   type: str
   default: "3.11"
   help: "Python version to use in the project"
+
+docker_base_build_image:
+  default: "python:{{ python_version }}-{{ ubuntu_version_name }}"
+  when: false
+docker_base_run_image:
+  default: "python:{{ python_version }}-slim-{{ ubuntu_version_name }}"
+  when: false

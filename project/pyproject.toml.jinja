@@ -11,6 +11,8 @@ keywords = ["{{ python_package }}"]
 homepage = "https://github.com/{{ github_user }}/{{ project_slug }}"
 packages = [ { include = "{{ python_package }}", from = "src" } ]
 
+[tool.bandit]
+exclude_dirs = ["tests", "docs", "examples", ".venv", "dist", ".ruff_cache", ".github"]
 
 [tool.creosote]
 venvs = [".venv"]
