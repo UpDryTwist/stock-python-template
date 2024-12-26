@@ -144,7 +144,7 @@ full-build: full-commit-ready version-build
 max-build: autoupdate full-build docker-build
 
 check-uncommitted:
-	@if [ -n "$(shell git status --porcelain)" ]; then echo "Uncommitted changes in Git"; exit 1; fi
+	@if [ -n "$(shell git status --porcelain)" ]; then echo "Uncommitted changes in Git"; git status --short; exit 1; fi
 
 commit-and-tag-release:
 	@git add pyproject.toml .bumpversion.toml
