@@ -26,7 +26,8 @@ help:
 	@echo "  max-build         to run a complete dependencies refresh, full build, and docker build/publish"
 	@echo "  autoupdate        to update dependencies"
 	@echo "  forced-update     to force update dependencies (clear Poetry cache)"
-	@echo "  template-update   to run the copier update"
+	@echo "  template-update   to run the copier update (latest template release)"
+	@echo "  template-update-tip   to run the copier update (latest template tip)"
 	@echo "  check-uncommitted to check for uncommitted changes in Git"
 	@echo "  commit-and-tag-release    to commit and tag the release"
 	@echo "  build-and-release-patch   to run the full build and release a patch"
@@ -180,3 +181,6 @@ build-and-release-major: pre-build-and-release-version bump-version-major post-b
 
 template-update:
 	@copier update --trust --defaults --conflict inline
+
+template-update-tip:
+	@copier update --trust --defaults --conflict inline --vcs-ref==HEAD
