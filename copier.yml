@@ -45,7 +45,7 @@ project_name:
   help: "What is the project's human-friendly name?"
 project_description:
   type: str
-  placeholder: "A short description of the project"
+  default: "{{ project_name }}"
   help: "A short description of the project"
 project_slug:
   type: str
