@@ -41,23 +41,23 @@ github_user:
 
 project_name:
   type: str
-  default: "My Awesome Project"
+  placeholder: "Meaningful Name"
   help: "What is the project's human-friendly name?"
 project_description:
   type: str
-  default: "A short description of the project"
+  placeholder: "A short description of the project"
   help: "A short description of the project"
 project_slug:
   type: str
-  default: "my_awesome_project"
+  default: "{{ project_name|lower|replace(' ', '_') }}"
   help: "Project name; lowercase, no spaces; underscores"
 python_package:
   type: str
-  default: "my_awesome_project"
+  default: "{{ project_slug }}"
   help: "Python package name; lowercase, no spaces; underscores"
 docker_project:
   type: str
-  default: "{{ python_package }}"
+  default: "{{ python_package|replace('_', '-') }}"
   help: "Docker project name; lowercase, no spaces; hyphens"
 repository_name:
   type: str
