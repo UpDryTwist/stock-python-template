@@ -139,4 +139,4 @@ full-build: full-commit-ready version-build
 max-build: autoupdate full-build docker-build
 
 template-update:
-	@copier update --defaults --conflict inline
+	@copier update --trust --defaults --conflict inline
