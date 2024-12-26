@@ -121,19 +121,19 @@ docker-publish-one: docker-build-one
 	@docker push $(DOCKER_REPO)/$(DOCKER_PROJ):latest
 
 bump-version-major:
-	@bump-my-version bump major pyproject.toml .bumpversion.toml
+	@poetry run bump-my-version bump major pyproject.toml .bumpversion.toml
 
 bump-version-minor:
-	@bump-my-version bump minor pyproject.toml .bumpversion.toml
+	@poetry run bump-my-version bump minor pyproject.toml .bumpversion.toml
 
 bump-version-patch:
-	@bump-my-version bump patch pyproject.toml .bumpversion.toml
+	@poetry run bump-my-version bump patch pyproject.toml .bumpversion.toml
 
 bump-version-pre:
-	@bump-my-version bump pre_l pyproject.toml .bumpversion.toml
+	@poetry run bump-my-version bump pre_l pyproject.toml .bumpversion.toml
 
 bump-version-build:
-	@bump-my-version bump pre_n pyproject.toml .bumpversion.toml
+	@poetry run bump-my-version bump pre_n pyproject.toml .bumpversion.toml
 
 version-build: bump-version-build build
 
