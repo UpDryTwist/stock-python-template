@@ -122,18 +122,28 @@ docker-publish-one: docker-build-one
 
 bump-version-major:
 	@poetry run bump-my-version bump major pyproject.toml .bumpversion.toml
+	@dos2unix .bumpversion.toml
+	@dos2unix pyproject.toml
 
 bump-version-minor:
 	@poetry run bump-my-version bump minor pyproject.toml .bumpversion.toml
+	@dos2unix .bumpversion.toml
+	@dos2unix pyproject.toml
 
 bump-version-patch:
 	@poetry run bump-my-version bump patch pyproject.toml .bumpversion.toml
+	@dos2unix .bumpversion.toml
+	@dos2unix pyproject.toml
 
 bump-version-pre:
 	@poetry run bump-my-version bump pre_l pyproject.toml .bumpversion.toml
+	@dos2unix .bumpversion.toml
+	@dos2unix pyproject.toml
 
 bump-version-build:
 	@poetry run bump-my-version bump pre_n pyproject.toml .bumpversion.toml
+	@dos2unix .bumpversion.toml
+	@dos2unix pyproject.toml
 
 version-build: bump-version-build build
 
