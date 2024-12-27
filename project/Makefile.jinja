@@ -50,7 +50,7 @@ install:
 	@poetry install
 	@poetry update
 
-autoupdate:  template-update
+autoupdate:
 	@poetry run pre-commit autoupdate
 	@poetry update
 
@@ -69,7 +69,7 @@ add-to-git:
 
 add-to-github:
 	@gh repo create {{ repository_name }} --public --source=.
-    @git branch -M main
+	@git branch -M main
 	@git remote add origin https://github.com/{{ github_user }}/{{ repository_name }}.git
 	@git push -u origin main
 
