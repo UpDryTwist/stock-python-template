@@ -6,6 +6,8 @@ ignore = [
     "D212", # Multi-line docstring should start on 1st line
     "D205", # 1 blank line required between summary line and description
     "D413", # Missing blank line after last section (in multi-line docstrings)
+    "FBT001", # Use of boolean as a positional argument
+    "PLR0913", # Too many arguments for function
     "ISC001",  # Concatentate strings on same line
     "PGH003", # Use of type:ignore without details
     "FBT001", # Use of boolean as a positional argument

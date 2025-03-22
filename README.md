@@ -26,6 +26,6 @@ Run with:
 ```bash
 copier update --defaults
 ```
-* Remoive `--defaults` to be prompted for each change.
+* Remove `--defaults` to be prompted for each change.
 * Add `--vcs-ref=HEAD` to update to the latest version of the template.
 * Add `--confict inline` to put conflict markers inline

@@ -4,3 +4,4 @@ fileignoreconfig:
 version: ""
 scopeconfig:
   - scope: python
+threshold: medium
