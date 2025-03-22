@@ -5,10 +5,10 @@ description = "{{ project_description}}"
 authors = ["{{ author_name }} <{{ author_email }}>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/{{ github_user }}/{{ project_slug }}"
-documentation = "https://{{ project_slug }}.readthedocs.io/en/latest/"
+repository = "https://github.com/{{ github_user }}/{{ repository_name}}"
+documentation = "https://{{ repository_name }}.readthedocs.io/en/latest/"
 keywords = ["{{ python_package }}"]
-homepage = "https://github.com/{{ github_user }}/{{ project_slug }}"
+homepage = "https://github.com/{{ github_user }}/{{ repository_name }}"
 packages = [ { include = "{{ python_package }}", from = "src" } ]
 
 [lint.per-file-ignores]
@@ -54,8 +54,8 @@ sphinx = ">=7.2.6,<9.0.0"
 sphinx-rtd-theme = "^3.0.2"
 pyright = "^1.1.390"
 pytest-cov = "^6.0.0"
-bump-my-version = "^0.28.1"
-copier = "^9.4.1"
+bump-my-version = "^0.33.0"
+copier = "^9.5.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -4,8 +4,15 @@ ignore = [
     "E501", # Line too long
     "D203", # 1 blank line required before class docstring
     "D212", # Multi-line docstring should start on 1st line
+    "D205", # 1 blank line required between summary line and description
     "D413", # Missing blank line after last section (in multi-line docstrings)
     "ISC001",  # Concatentate strings on same line
+    "PGH003", # Use of type:ignore without details
+    "FBT001", # Use of boolean as a positional argument
+    "EM101", # Use of string literals in exceptions
+    "EM102", # Use of f-strings in exceptions
+    "TRY301", # Abstract raise to inner function
+    "TRY003", # Long messages in exception class
 ]
 
 select = [

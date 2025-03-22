@@ -133,3 +133,9 @@ dmypy.json
 cython_debug/
 /testresults.xml
 /docs/generated/
+
+# General other and local configuration
+pythonenv*
+.storage
+.cookiecutter.json
+config
