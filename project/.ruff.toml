@@ -141,5 +141,3 @@ select = [
     "RUF",
 ]
 
-[lint.per-file-ignores]
-"tests/*.py" = ["S101"]
