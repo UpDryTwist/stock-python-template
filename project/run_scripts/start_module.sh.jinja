@@ -28,6 +28,11 @@ if [ -n "${MAP_GID}" ]; then
 		-gid "${grp}" -exec chgrp dockergroup {} \; || true
 fi
 
+if [ -n "${UMASK}" ]; then
+	echo "Mapping umask to ${UMASK}"
+	umask "${UMASK}"
+fi
+
 source /app/.venv/bin/activate
 cd /app
 
