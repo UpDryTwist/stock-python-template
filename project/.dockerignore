@@ -1,3 +1,27 @@
+# Project configuration
+.bumpversion.toml
+.codecov.yml
+.copier-answers.yml
+.dockerignore
+.gitignore
+.gitattributes
+.pre-commit-config.yaml
+.python-version
+.readthedocs.yml
+.releaserc.json
+.roomodes
+.ruff.toml
+.talismanrc
+.yamllint
+Makefile
+poetry.lock
+pyproject.toml
+
+.cursor/
+.github/
+.roo/
+.taskmaster/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -167,3 +191,4 @@ node_modules/
 # Docker local testing
 local-instance/
 
+development_notes/

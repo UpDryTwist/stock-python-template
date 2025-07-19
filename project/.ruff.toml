@@ -26,6 +26,8 @@ ignore = [
     "EM102", # Use of f-strings in exceptions
     "TRY301", # Abstract raise to inner function
     "TRY003", # Long messages in exception class
+    "TD002", # TODOs must have author
+    "TD003", # TODOs must have issue link
 ]
 
 select = [
