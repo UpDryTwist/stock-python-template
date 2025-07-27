@@ -5,6 +5,7 @@
     "FBT",  # Use of boolean as a positional argument
     "PLR2004", # Magic value in comiparison
     "S311",  # Standard pseudo-random generators are not suitable for security/cryptographic purposes
+    "SLF001", # Allow accessing private members in testing
 ]
 
 [lint]
@@ -28,6 +29,7 @@ ignore = [
     "TRY003", # Long messages in exception class
     "TD002", # TODOs must have author
     "TD003", # TODOs must have issue link
+    "FIX002", # Allow TODOs in files
 ]
 
 select = [

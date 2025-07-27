@@ -14,8 +14,7 @@
 .talismanrc
 .yamllint
 Makefile
-poetry.lock
-pyproject.toml
+
 
 .cursor/
 .github/
