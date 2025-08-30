@@ -1,11 +1,17 @@
 [lint.per-file-ignores]
 "tests/*" = [
     "S101", # Use of assert
-    "ARG",  # Unused arguments (particularly for fixtures)
+    "S101", # Use of assert
+    "ARG001", # Unused function argument (particularly for fixtures)
+    "ARG002", # Unused method argument
+    "ARG003", # Unused class method argument
+    "ARG004", # Unused static method argument
+    "ARG005", # Unused lambda argument
     "FBT",  # Use of boolean as a positional argument
     "PLR2004", # Magic value in comiparison
     "S311",  # Standard pseudo-random generators are not suitable for security/cryptographic purposes
     "SLF001", # Allow accessing private members in testing
+    "S603", # Parameters controlled by tests ...
 ]
 
 [lint]
@@ -30,6 +36,7 @@ ignore = [
     "TD002", # TODOs must have author
     "TD003", # TODOs must have issue link
     "FIX002", # Allow TODOs in files
+    "TID252", # Allow relative imports
 ]
 
 select = [
@@ -144,4 +151,3 @@ select = [
     # Ruff-specific
     "RUF",
 ]
-
